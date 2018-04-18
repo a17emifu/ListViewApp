@@ -25,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Arraylist för ListView
-        /*String[] mountainNames = {"Matterhorn","Mont Blanc","Denali"};
-        String[] mountainLocations = {"Alps","Alps","Alaska"};*/
         List<String> listdata =new ArrayList<String>(Arrays.asList(mountainNames));
 
         //Arrayadapter för ListView
