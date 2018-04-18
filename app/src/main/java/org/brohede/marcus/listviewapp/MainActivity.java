@@ -25,32 +25,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Arraylist för ListView
-        String[] mountainNames = {"Matterhorn","Mont Blanc","Denali"};
+        /*String[] mountainNames = {"Matterhorn","Mont Blanc","Denali"};
+        String[] mountainLocations = {"Alps","Alps","Alaska"};*/
         List<String> listdata =new ArrayList<String>(Arrays.asList(mountainNames));
 
         //Arrayadapter för ListView
         ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(),R.layout.list_item_textview,R.id.my_item_textview,listdata);
         ListView myListView = (ListView)findViewById(R.id.my_listview);
         myListView.setAdapter(adapter);
-        
+
         //För att listitem kan tryckas på
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View v, int i, long id) {
-                //Toast för varje bergs information genom switch-satser
-                switch(i){
-                    case 0 :
-                        Toast.makeText(MainActivity.this, "4478m i Alps!", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 1 :
-                        Toast.makeText(MainActivity.this, "4808m i Alps!", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 2 :
-                        Toast.makeText(MainActivity.this, "6190m i Alaska!", Toast.LENGTH_SHORT).show();
-                        break;
+                String string = "This mountain is " + mountainNames[i] + " in " + mountainLocations[i] + "\n" + "and height is " + mountainHeights[i];
+                Toast.makeText(getApplicationContext(), string,Toast.LENGTH_LONG).show();
                 }
             }
-        });
+        );
 
     }
 }
